@@ -5,9 +5,8 @@ Challenge Project of Netvirta
 
 2. By reading the tutorial online, we first need to build a negative dataset which contains the image without the target object  in it.  And for our project we need to detect the credit card on different surface with different lighting condition. Thus, I choose the [Floor](http://www.image-net.org/api/text/imagenet.synset.geturls?wnid=n03366823) and [Fabric](http://www.image-net.org/api/text/imagenet.synset.geturls?wnid=n03309808) from the ImageNet to be our negative images.  Sample image are showed below:
 
-![Sample 1](resources/images/samplefloor.jpg?raw=true"Floor")
+![Sample 1](https://github.com/BMDroid/Netvirta-Challenge-Project/tree/master/resources/images/sampleFloor.jpg)
 
 3. The python script for downloading the image "imgDownload.py" is in the "src" folder. And the previous image after transformed to grayscale and resize to 200 * 200 is showed below:
 
-![Sample 1](resources/images/transformedFloor.jpg?raw=true"Transformed Floor")
-
+![Sample 2](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/resources/images/transformedFloor.jpg)

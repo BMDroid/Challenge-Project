@@ -13,3 +13,21 @@ Challenge Project of Netvirta
 <p align="center">
   <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/transformedFloor.jpg">
 </p>
+
+4. Upload the negative images to folder "neg" and use the following commands create the description file for the negative images:
+
+   ```shell
+   $ find ./neg -iname "*.jpg" > ./neg/neg.txt 
+   ```
+
+   And the *neg.txt* contains:
+
+   ```shell
+   $ cat ./neg/neg.txt
+   ./neg/neg_0001.jpg                                                      
+   ./neg/neg_0002.jpg                                                              
+   ./neg/neg_0003.jpg                                                                
+   ./neg/neg_0004.jpg                                                               
+   ./neg/neg_0005.jpg
+   ...
+   ```

@@ -31,3 +31,8 @@ Challenge Project of Netvirta
    ./neg/neg_0005.jpg
    ...
    ```
+
+5. Upload total 76 credit card images (downloaded from Goole Images) as positive images into "pos" folder. The sample image is showed below:
+<p align="center">
+  <img width="284" height="178" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/creditCard.jpg">
+</p>

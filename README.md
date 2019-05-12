@@ -37,3 +37,7 @@
 </p>
 
 6. Since all the credit card images are in different ratio, for future sample creating and model training, all the credit card images had been resized to **288 * 180** by using the [imgResize.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/imgResize.py) And all the resized images are stored in "pos_resize" folder. After deleting vertical credit card images and opposite side of the credit card image, now we have **73** credit card images.
+
+7. Then we create the description file contains the postive images path and the loaction and size of the bounding box. Since all the positive images have been resized to same ration, we could easily got the description file with the following command:
+    ```shell
+    $ find ./pos_resize -name '*.jpg' -exec echo \{\} 1 0 0 288 180 \; > ./pos_resize/pos.txt 

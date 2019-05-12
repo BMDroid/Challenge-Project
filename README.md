@@ -35,3 +35,4 @@
 <p align="center">
   <img width="284" height="178" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/creditCard.jpg">
 </p>
+6. Since all the credit card images are in different ratio, for future sample creating and model training, all the credit card images had been resized to 288 * 180 by using the [imgResize](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/imgResize.py). And all the resized images are stored in *pos_resize* folder.

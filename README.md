@@ -40,4 +40,13 @@
 
 7. Then we create the description file contains the postive images path and the loaction and size of the bounding box. Since all the positive images have been resized to same ration, we could easily got the description file with the following command:
     ```shell
-    $ find ./pos_resize -name '*.jpg' -exec echo \{\} 1 0 0 288 180 \; > ./pos_resize/pos.txt 
+    $ find ./pos_resize -name '*.jpg' -exec echo \{\} 1 0 0 288 180 \; > ./pos_resize/pos.txt
+    ```
+    The pos.txt contains:
+    ```shell
+    $ cd pos_resize
+    $ cat pos.txt
+    ./pos_resize/pos_01.jpg 1 0 0 288 180
+    ...
+    ```
+    It means that the pos_01.jpg has one target in it and its position is (0, 0) with the width and hight as (288, 180).

@@ -50,3 +50,19 @@
     ...
     ```
     It means that the pos_01.jpg has one target in it and its position is (0, 0) with the width and hight as (288, 180).
+    
+8. Then we need to create sample images for future training. OpenCV provides the [opencv_createsamples](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html) command for creating the training images. Right now, we have **73** credit card images, thus we need to conduct the following command for each image:
+    ```shell
+    $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg/neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 128 -maxxangle 0.3 -maxyangle 0.3 -maxzangle 0.3 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
+    ```
+    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder.
+    
+9. Then we create the vec file for the postive images we just created.
+    ```shell
+    $ cd samples
+    $ cat samples*.txt > samples.txt
+    $ cd ..
+    $ opencv_createsamples -info samples/samples.txt -bg neg/neg.txt -vec pos.vec -num 9344 -w 48 -h 30
+    ```
+    We finally get all files we need for train the model.
+

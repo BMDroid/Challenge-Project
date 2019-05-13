@@ -2,7 +2,14 @@ import cv2
 import os
 import sys
 
-def img_resize(folderName): 
+def img_resize(folderName):
+    ''' Resize images to certain ratio.
+    Args:
+        folderName::str
+        The name of the folder stores the images.
+    Returns:
+        None
+    '''
     for fileName in os.listdir(folderName):
         print(f"./{folderName}/{fileName}")
         img = cv2.imread(f"./{folderName}/{fileName}")

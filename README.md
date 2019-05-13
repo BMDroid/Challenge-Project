@@ -55,6 +55,12 @@
     ```shell
     $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg/neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 128 -maxxangle 0.3 -maxyangle 0.3 -maxzangle 0.3 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
     ```
+    
+    The sample image created is showed below:
+    <p align="center">
+      <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/sampleImg.jpg">
+    </p>
+    
     By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder.
     
 9. Then we create the vec file for the postive images we just created.

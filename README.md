@@ -61,7 +61,7 @@
       <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/sampleImg.jpg">
     </p>
     
-    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder.
+    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder. (*All the sample images have been added to samples.zip*)
     
 9. Then we create the vec file for the postive images we just created.
     ```shell

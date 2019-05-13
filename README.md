@@ -5,12 +5,12 @@
 2. By reading the tutorial online, we first need to build a **negative dataset** which contains the image **without the target object**  in it.  And for our project we need to detect the credit card on different surface with different lighting condition. Thus, I choose the [Floor](http://www.image-net.org/api/text/imagenet.synset.geturls?wnid=n03366823) and [Fabric](http://www.image-net.org/api/text/imagenet.synset.geturls?wnid=n03309808) from the ImageNet to be our negative images.  Sample image is showed below:
 
 <p align="center">
-  <img width="500" height="370" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/sampleFloor.jpg">
+  <img width="500" height="370" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/sampleFloor.jpg">
 </p>
 
 3. The python script for downloading the image [imgDownload.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/imgDownload.py) is in the "src" folder. And the previous image after transformed to **grayscale** and **resize** to 200 * 200 is showed below:
 <p align="center">
-  <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/transformedFloor.jpg">
+  <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/transformedFloor.jpg">
 </p>
 
 4. Upload the negative images to folder "neg" and use the following commands create the description file for the negative images:
@@ -33,10 +33,10 @@
 
 5. Upload total 76 credit card images (downloaded from Goole Images) as positive images into "pos" folder. The sample image is showed below: 
 <p align="center">
-  <img width="284" height="178" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/creditCard.jpg">
+  <img width="284" height="178" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/creditCard.jpg">
 </p>
 
-6. Since all the credit card images are in different ratio, for future sample creating and model training, all the credit card images had been resized to **288 * 180** by using the [imgResize.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/imgResize.py) And all the resized images are stored in "pos_resize" folder. After deleting vertical credit card images and opposite side of the credit card image, now we have **73** credit card images.
+6. Since all the credit card images are in different ratio, for future sample creating and model training, all the credit card images had been resized to **288 * 180** by using the [imgResize.py](https://github.com/BMDroid/Challenge-Project/blob/master/src/imgResize.py) And all the resized images are stored in "pos_resize" folder. After deleting vertical credit card images and opposite side of the credit card image, now we have **73** credit card images.
 
 7. Then we create the description file contains the postive images path and the loaction and size of the bounding box. Since all the positive images have been resized to same ration, we could easily got the description file with the following command:
     ```shell
@@ -58,7 +58,7 @@
     
     The sample image created is showed below:
     <p align="center">
-      <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Netvirta-Challenge-Project/master/resources/images/sampleImg.jpg">
+      <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/sampleImg.jpg">
     </p>
     
     By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder.

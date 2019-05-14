@@ -78,10 +78,11 @@
     ```
     [The detail of the command could be found here.](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html)
     The file for each training stage is stored in "output" folder, and it took 8 hours to train to 18 stages on WSL Ubuntu with 16 Gb ram. 
-    To get the final classifier after the training ended, the same command (excpet the *numStages* has been modified to be **18**) has been conducted. And we could get the following output:
+    To get the final classifier after the training ended, the same command (excpet the **numStages** has been modified to be **18**) has been conducted. And we could get the following output:
     
     <p align="center">
       <img width="300" height="400" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/cascade.png">
     </p>
+    
     And we copy and rename the **"cascade.xml**" to **"cascade18stages.xml""** for future detection usuage.
     

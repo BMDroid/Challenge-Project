@@ -81,7 +81,7 @@
     To get the final classifier after the training ended, the same command (excpet the **numStages** has been modified to be **18**) has been conducted. And we could get the following output:
     
     <p align="center">
-      <img width="300" height="400" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/cascade.png">
+      <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/cascade.png">
     </p>
     
     And we copy and rename the **"cascade.xml**" to **"cascade18stages.xml""** for future detection usuage.

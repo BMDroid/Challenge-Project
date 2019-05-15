@@ -128,3 +128,16 @@
         cards = card_cascade.detectMultiScale(grey, 1.005, 5)
         print('Card found: ', len(cards))
         ```
+    
+    5. For detected cards, computed the iou of the largest contour's bounding box and the detected card bounding box. If ios larger than 0.5, then we say that the largest contour is the contour of the card. Otherwise, the detected contour is chosen to be the contur of the card.
+    
+        ```python
+        for (x,y,w,h) in cards:
+          boxA = (x,y,x+w,x+h)
+          iou = bb_intersection_over_union(boxA, boxB)
+          if iou >= 0.5:
+              hull = cv2.convexHull(largestContour)
+              cv2.drawContours(resized, [hull], -1, (255, 255, 0), 1)
+          else:
+              cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 1)
+        ```

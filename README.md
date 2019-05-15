@@ -141,6 +141,11 @@
           else:
               cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 1)
         ```
+    The bounding box in **red** is the detected one, the **green** one is the largest bounding contour. 
+    <p align="center">
+      <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/iou.jpg">
+    </p> 
+        
     6. The result example is showed below:
     
     <p align="center">

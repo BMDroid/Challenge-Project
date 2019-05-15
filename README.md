@@ -90,40 +90,41 @@
 
     1. First, we need to resize the image to the similar size of the training samples.
     
-      ```python
-      def resize(img, scale=0.05):
-          # calculate the resize scale
-          minLen = min(img.shape[1], img.shape[0])
-          scale = 150 / minLen
-          width = int(img.shape[1] * scale)
-          height = int(img.shape[0] * scale)
-          resized = cv2.resize(img, (width, height), interpolation = cv2.INTER_AREA)
-          return resized
-      ```
-    2. Then, I used Gaussian blur and convert the blurred image to the gray.
+        ```python
+        def resize(img, scale=0.05):
+            # calculate the resize scale
+            minLen = min(img.shape[1], img.shape[0])
+            scale = 150 / minLen
+            width = int(img.shape[1] * scale)
+            height = int(img.shape[0] * scale)
+            resized = cv2.resize(img, (width, height), interpolation = cv2.INTER_AREA)
+            return resized
+        ```
     
-      ```python
-      blur = cv2.GaussianBlur(resized, (3, 3), 0)
-      grey = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
-      ```
+    2. Then, I used Gaussian blur and convert the blurred image to the gray.
+
+        ```python
+        blur = cv2.GaussianBlur(resized, (3, 3), 0)
+        grey = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
+        ```
       
     3. Detect the largest external contour by using the hierachy of the countour. Then create the rectangle bounding box for the largest 
     contour.
       
-      ```python
-      # threshold image
-      threshed_img = cv2.Canny(resized, 0, 255)
-      # find the largest contour and its bounding box
-      largestContour = largest_contour(threshed_img)
-      lagestPoly = cv2.approxPolyDP(largestContour, 3, True)
-      boundRect = cv2.boundingRect(lagestPoly)
-      ```
+        ```python
+        # threshold image
+        threshed_img = cv2.Canny(resized, 0, 255)
+        # find the largest contour and its bounding box
+        largestContour = largest_contour(threshed_img)
+        lagestPoly = cv2.approxPolyDP(largestContour, 3, True)
+        boundRect = cv2.boundingRect(lagestPoly)
+        ```
       
     4. Load the classifer and try to detect the card in the image. If detected, print the number of the detected cards.
     
-      ```python
-      # load the classifier
-      card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
-      cards = card_cascade.detectMultiScale(grey, 1.005, 5)
-      print('Card found: ', len(cards))
-      ```
+        ```python
+        # load the classifier
+        card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
+        cards = card_cascade.detectMultiScale(grey, 1.005, 5)
+        print('Card found: ', len(cards))
+        ```

@@ -74,7 +74,7 @@
 
 10. By using the following command, the haar feature classifier could be trained:
     ```shell
-    $ opencv_traincascade -data output -vec pos.vec -bg neg/neg.txt -numPos 1000 -numNeg 500 -numStages 5 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.2 -w 48 -h 30
+    $ opencv_traincascade -data output -vec pos.vec -bg neg/neg.txt -numPos 1000 -numNeg 500 -numStages 6 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.2 -w 48 -h 30
     ```
     [The detail of the command could be found here.](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html)
     The file for each training stage is stored in "output" folder, and it took 1 hour to train to 6 stages on WSL Ubuntu with 16 Gb ram. 

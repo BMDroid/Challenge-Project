@@ -141,3 +141,5 @@
           else:
               cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 1)
         ```
+    6. The result example is showed below:
+    

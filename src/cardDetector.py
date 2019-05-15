@@ -52,7 +52,7 @@ def bb_intersection_over_union(boxA, boxB):
 
 if __name__ == '__main__':
     # load the classifier
-    card_cascade = cv2.CascadeClassifier('./output/cascade.xml')
+    card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
     
     # load the image
     img = cv2.imread('./test/test1.jpg')

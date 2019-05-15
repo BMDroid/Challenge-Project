@@ -53,7 +53,7 @@
     
 8. Then we need to create sample images for future training. OpenCV provides the [opencv_createsamples](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html) command for creating the training images. Right now, we have **73** credit card images, thus we need to conduct the following command for each image:
     ```shell
-    $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg/neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 256 -maxxangle 0.3 -maxyangle 0.3 -maxzangle 0.3 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
+    $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg/neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 128 -maxxangle 0 -maxyangle 0 -maxzangle 0 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
     ```
     
     The sample image created is showed below:
@@ -61,28 +61,28 @@
       <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/sampleImg.jpg">
     </p>
     
-    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **18688** sample imgages and their descrption file in "samples" folder. (*All the sample images have been added to samples.7z*)
+    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder. (*All the sample images have been added to samples.7z*)
     
 9. Then we create the vec file for the postive images we just created.
     ```shell
     $ cd samples
     $ cat samples*.txt > samples.txt
     $ cd ..
-    $ opencv_createsamples -info samples/samples.txt -bg neg/neg.txt -vec pos.vec -num 18688 -w 48 -h 30
+    $ opencv_createsamples -info samples/samples.txt -bg neg/neg.txt -vec pos.vec -num 9344 -w 48 -h 30
     ```
     We finally get all files we need for train the model.
 
 10. By using the following command, the haar feature classifier could be trained:
     ```shell
-    $ opencv_traincascade -data output -vec pos.vec -bg neg/neg.txt -numPos 1000 -numNeg 500 -numStages 20 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.5 -w 48 -h 30
+    $ opencv_traincascade -data output -vec pos.vec -bg neg/neg.txt -numPos 1000 -numNeg 500 -numStages 5 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.2 -w 48 -h 30
     ```
     [The detail of the command could be found here.](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html)
-    The file for each training stage is stored in "output" folder, and it took 8 hours to train to 18 stages on WSL Ubuntu with 16 Gb ram. 
-    To get the final classifier after the training ended, the same command (excpet the **numStages** has been modified to be **18**) has been conducted. And we could get the following output:
+    The file for each training stage is stored in "output" folder, and it took 1 hour to train to 6 stages on WSL Ubuntu with 16 Gb ram. 
+    To get the final classifier after the training ended, the same command (excpet the **numStages** has been modified to be **6**) has been conducted. And we could get the following output:
     
     <p align="center">
       <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/cascade.jpg">
     </p>
     
-    And we copy and rename the **"cascade.xml**" to **"cascade18stages.xml""** for future detection usuage.
+    And we copy and rename the **"cascade.xml**" to **"cascade6stages.xml""** for future detection usuage.
     

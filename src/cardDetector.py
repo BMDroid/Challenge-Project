@@ -55,7 +55,7 @@ if __name__ == '__main__':
     card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
     
     # load the image
-    img = cv2.imread('./test/test1.jpg')
+    img = cv2.imread('./test/test.jpg')
     resized = resize(img)
     blur = cv2.GaussianBlur(resized, (3, 3), 0)
     height, width = resized.shape[:2]
@@ -77,16 +77,16 @@ if __name__ == '__main__':
     cards = card_cascade.detectMultiScale(grey, 1.005, 5)
     print('Card found: ', len(cards))
 
-    for (x,y,w,h) in cards:
-        boxA = (x,y,x+w,x+h)
+    for (x, y, w, h) in cards:
+        boxA = (x, y, x+w, x+h)
         iou = bb_intersection_over_union(boxA, boxB)
         if iou >= 0.5:
             # cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 1)
             # cv2.rectangle(resized, (boxB[0], boxB[1]), (boxB[2], boxB[3]), (0, 255, 0, 1))
             hull = cv2.convexHull(largestContour)
-            cv2.drawContours(resized, [hull], -1, (255, 255, 0), 1)
+            cv2.drawContours(resized, [hull], -1, (255, 255, 0), 2)
         else:
-            cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 1)
+            cv2.rectangle(resized, (x,y), (x+w, y+h), (0, 0, 255), 2)
 
     # create the window
     cv2.namedWindow('result', cv2.WINDOW_NORMAL)
@@ -97,5 +97,5 @@ if __name__ == '__main__':
     if k == 27:         # wait for ESC key to exit
         cv2.destroyAllWindows()
     elif k == ord('s'): # wait for 's' key to save and exit
-        cv2.imwrite('test.png',img)
+        cv2.imwrite('result.jpg', resized)
         cv2.destroyAllWindows()

@@ -144,5 +144,5 @@
     6. The result example is showed below:
     
     <p align="center">
-      <img width="300" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/result.jpg">
+      <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/result.jpg">
     </p>

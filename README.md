@@ -167,6 +167,7 @@
         return dic
     ```
  
- The script for calculating the error rate is [errRateTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py)
+ 
+      The script for calculating the error rate is [errRateTest.py](https://github.com/BMDroid/Netvirta-Challenge-          Project/blob/master/src/createTest.py)
 
 14. And the error rate is **37%**.  For 510 negative images, there are only 39 wrong classified images. Thus, the classifier has very high true negative rate. Overall, the model can detect the credit card images with reasonable accuracy.

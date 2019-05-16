@@ -10,6 +10,9 @@ def img_resize(folderName):
     Returns:
         None
     '''
+    if not os.path.exists('../pos_resize'):
+        os.makedirs('../pos_resize')
+
     for fileName in os.listdir(folderName):
         print(f"{folderName}/{fileName}")
         img = cv2.imread(f"{folderName}/{fileName}")

@@ -55,7 +55,7 @@ if __name__ == '__main__':
     card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
     
     # load the image
-    img = cv2.imread('./test/test.jpg')
+    img = cv2.imread('./data/test1.jpg')
     resized = resize(img)
     blur = cv2.GaussianBlur(resized, (3, 3), 0)
     height, width = resized.shape[:2]

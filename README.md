@@ -166,6 +166,6 @@
                 dic[line[:28]] = list(map(int, box))
         return dic
     ```
-    [errRateTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py) is the script for calculating the error rate.
+    [errRateTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/errRateTest.py) is the script for calculating the error rate.
 
 14. And the error rate is **37%**.  For 510 negative images, there are only 39 wrong classified images. Thus, the classifier has very high true negative rate. Overall, the model can detect the credit card images with reasonable accuracy.

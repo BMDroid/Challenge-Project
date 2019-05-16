@@ -16,13 +16,13 @@
 4. Upload the negative images to folder "neg" and use the following commands create the description file for the negative images:
 
    ```shell
-   $ find ./neg -iname "*.jpg" > ./neg/neg.txt 
+   $ find ./neg -iname "*.jpg" > neg.txt 
    ```
 
    And the *neg.txt* contains:
 
    ```shell
-   $ cat ./neg/neg.txt
+   $ cat neg.txt
    ./neg/neg_0001.jpg                                                      
    ./neg/neg_0002.jpg                                                              
    ./neg/neg_0003.jpg                                                                
@@ -40,11 +40,10 @@
 
 7. Then we create the description file contains the postive images path and the loaction and size of the bounding box. Since all the positive images have been resized to same ration, we could easily got the description file with the following command:
     ```shell
-    $ find ./pos_resize -name '*.jpg' -exec echo \{\} 1 0 0 288 180 \; > ./pos_resize/pos.txt
+    $ find ./pos_resize -name '*.jpg' -exec echo \{\} 1 0 0 288 180 \; > pos.txt
     ```
     The pos.txt contains:
     ```shell
-    $ cd pos_resize
     $ cat pos.txt
     ./pos_resize/pos_01.jpg 1 0 0 288 180
     ...
@@ -53,7 +52,7 @@
     
 8. Then we need to create sample images for future training. OpenCV provides the [opencv_createsamples](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html) command for creating the training images. Right now, we have **73** credit card images, thus we need to conduct the following command for each image:
     ```shell
-    $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg/neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 128 -maxxangle 0 -maxyangle 0 -maxzangle 0 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
+    $ opencv_createsamples -img pos_resize/pos_01.jpg -bg neg.txt -info samples/samples_{img[-6:-4]}.txt -pngoutput samples -num 128 -maxxangle 0 -maxyangle 0 -maxzangle 0 -bgcolor 255 -bgthresh 8 -maxidev 40 -w 48 -h 30
     ```
     
     The sample image created is showed below:
@@ -74,7 +73,7 @@
 
 10. By using the following command, the haar feature classifier could be trained:
     ```shell
-    $ opencv_traincascade -data output -vec pos.vec -bg neg/neg.txt -numPos 1000 -numNeg 500 -numStages 6 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.2 -w 48 -h 30
+    $ opencv_traincascade -data output -vec pos.vec -bg neg.txt -numPos 1000 -numNeg 500 -numStages 6 -precalcValBufSize 1024 -precalcIdxBufSize 1024 -featureType HAAR -minHitRate 0.995 -maxFalseAlarmRate 0.2 -w 48 -h 30
     ```
     [The detail of the command could be found here.](https://docs.opencv.org/3.4.1/dc/d88/tutorial_traincascade.html)
     The file for each training stage is stored in "output" folder, and it took 1 hour to train to 6 stages on WSL Ubuntu with 16 Gb ram. 

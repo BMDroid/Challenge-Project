@@ -17,14 +17,14 @@ def save_images(url):
     urls = response.read().decode('utf-8')
 
     # create new directory "neg" if it does not exit
-    if not os.path.exists('neg'):
-        os.makedirs('neg')
+    if not os.path.exists('../neg'):
+        os.makedirs('../neg')
     
     picNum = 1
     for i in urls.split('\n'):
         try:
             print(i)
-            fileName = f"neg/{picNum}.jpg"
+            fileName = f"../neg/{picNum}.jpg"
             urlretrieve(i, fileName)
             # transform the image to grayscale
             img = cv2.imread(fileName, cv2.IMREAD_GRAYSCALE)

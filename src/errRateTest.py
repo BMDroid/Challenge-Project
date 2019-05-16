@@ -39,9 +39,9 @@ def bb_intersection_over_union(boxA, boxB):
 
 if __name__ == '__main__':
     # load the classifier
-    card_cascade = cv2.CascadeClassifier('./output/cascade6stages.xml')
+    card_cascade = cv2.CascadeClassifier('../output/cascade6stages.xml')
     # specify the folder name of the test sets
-    folderName = './test'
+    folderName = '../test'
     dic = ground_truth(f"{folderName}/test.txt")
 
     # calculate the error rate of test set

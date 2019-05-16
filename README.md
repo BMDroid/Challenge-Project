@@ -60,7 +60,7 @@
       <img width="200" height="200" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/sampleImg.jpg">
     </p>
     
-    By using the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) we could get all **9344** sample imgages and their descrption file in "samples" folder. (*All the sample images have been added to samples.7z*)
+    First copy the [createSamples.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createSamples.py) to the main directory from src, then run the script we could get all **9344** sample imgages and their descrption file in "samples" folder. (*All the sample images have been added to samples.7z*)
     
 9. Then we create the vec file for the postive images we just created.
     ```shell
@@ -151,7 +151,7 @@
       <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/result.jpg">
     </p>
     
-12. The test set was created and there are **510** positive images and **510** negative images in it. The positive images in the test set are created by the same command of creating sample images. Howerver, the random seed of creating sample images is realted to the time, thus we need to wait for 1 seconds to process another image. [createTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py)
+12. The test set was created and there are **510** positive images and **510** negative images in it. The positive images in the test set are created by the same command of creating sample images. Howerver, the random seed of creating sample images is realted to the time, thus we need to wait for 1 seconds to process another image. Copy the [createTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py) from "src" to main directory and run the script.
 
 13. For error rate calculation, we calculated the **IoU** between the ground truth with the detected bounding box. For ground truth bounding box, the description files are created while creating the postive test images. A dictionary which store the (file name, bounding box) is created.
 

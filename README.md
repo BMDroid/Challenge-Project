@@ -88,7 +88,7 @@
     
 11. After the classissfier was trained, the [cardDetector.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/cardDetector.py) for detecting the card and draw contour is created.
 
-    1. First, we need to resize the image to the similar size of the training samples.
+    1. First, we need to resize the image to the **similar size** of the training samples.
     
         ```python
         def resize(img, scale=0.05):
@@ -101,14 +101,14 @@
             return resized
         ```
     
-    2. Then, I used Gaussian blur and convert the blurred image to the gray.
+    2. Then, I used Gaussian blur and convert the **blurred** image to the gray.
 
         ```python
         blur = cv2.GaussianBlur(resized, (3, 3), 0)
         grey = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
         ```
       
-    3. Detect the largest external contour by using the hierachy of the countour. Then create the rectangle bounding box for the largest 
+    3. Detect the **largest external contour** by using the hierachy of the countour. Then create the rectangle bounding box for the largest 
     contour.
       
         ```python
@@ -129,7 +129,7 @@
         print('Card found: ', len(cards))
         ```
     
-    5. For detected cards, computed the iou of the largest contour's bounding box and the detected card bounding box. If ios larger than 0.5, then we say that the largest contour is the contour of the card. Otherwise, the detected contour is chosen to be the contur of the card.
+    5. For detected cards, computed the **IoU** of the largest contour's bounding box and the detected card bounding box. If ios larger than 0.5, then we say that the largest contour is the contour of the card. Otherwise, the detected contour is chosen to be the contur of the card.
     
         ```python
         for (x,y,w,h) in cards:
@@ -151,3 +151,22 @@
     <p align="center">
       <img width="400" height="300" src="https://raw.githubusercontent.com/BMDroid/Challenge-Project/master/resources/images/result.jpg">
     </p>
+    
+12. The test set was created and there are **510** positive images and **510** negative images in it. The positive images in the test set are created by the same command of creating sample images. Howerver, the random seed of creating sample images is realted to the time, thus we need to wait for 1 seconds to process another image. [createTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py)
+
+13. For error rate calculation, we calculated the **IoU** between the ground truth with the detected bounding box. For ground truth bounding box, the description files are created while creating the postive test images. A dictionary which store the (file name, bounding box) is created.
+
+    ```python
+    def ground_truth(fileName):
+        # store the ground truth bounding box position (x, y, w, h) of each file in dictionary
+        dic = {}
+        with open(fileName) as f:  
+            for line in f:
+                box = line[31:].split()
+                dic[line[:28]] = list(map(int, box))
+        return dic
+    ```
+ 
+ The script for calculating the error rate is [errRateTest.py](https://github.com/BMDroid/Netvirta-Challenge-Project/blob/master/src/createTest.py)
+
+14. And the error rate is **37%**.  For 510 negative images, there are only 39 wrong classified images. Thus, the classifier has very high true negative rate. Overall, the model can detect the credit card images with reasonable accuracy.

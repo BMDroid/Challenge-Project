@@ -11,8 +11,8 @@ def img_resize(folderName):
         None
     '''
     for fileName in os.listdir(folderName):
-        print(f"./{folderName}/{fileName}")
-        img = cv2.imread(f"./{folderName}/{fileName}")
+        print(f"{folderName}/{fileName}")
+        img = cv2.imread(f"{folderName}/{fileName}")
         resized_image = cv2.resize(img, (288, 180))
         cv2.imwrite(f"../pos_resize/{fileName}", resized_image)
 
